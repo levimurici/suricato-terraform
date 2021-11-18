@@ -1,8 +1,3 @@
-provider "aws" {
-  version = "~> 3.0"
-  region  = "us-east-1"
-}
-
 resource "aws_instance" "services" {
     depends_on = ["aws_s3_bucket.dump-services"]
     count = 1
@@ -32,14 +27,4 @@ resource "aws_instance" "suricato-bots" {
       Name = "suricato-bots"
     }
     vpc_security_group_ids = ["${aws_security_group.acesso-dnd.id}"]
-}
-
-resource "aws_s3_bucket" "dump-services" {
-  bucket = "suricato-dump-services"
-  acl    = "private"
-
-  tags = {
-    Name        = "suricato-dump-services"
-    Environment = "Dev"
-    }
 }

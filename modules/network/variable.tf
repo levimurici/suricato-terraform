@@ -27,3 +27,20 @@ variable "cidr_security_group" {
   type        = list(string)
   default     = ["10.0.0.0/16", "177.50.229.182"]
 }
+
+#Variáveis keyname
+variable "key_name" {
+    /* type = "map" */
+    default = {
+        "keyname-services" = "terraform-aws-dnd-devops-labs"
+    }
+}
+
+#Variáveis das imagens
+variable "amis" {
+    /* type = "map" */
+    default = {
+        "ami-services" = "ami-083654bd07b5da81d"
+    }
+}
+
