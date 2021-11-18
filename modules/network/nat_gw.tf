@@ -9,7 +9,7 @@ resource "aws_eip" "vpc_iep" {
 
 resource "aws_nat_gateway" "nat" {
   allocation_id = "${aws_eip.vpc_iep.id}"
-  subnet_id     = "${aws_subnet.production_public-1e.id}"
+  subnet_id     = "${aws_subnet.dnd_public-1e.id}"
 
   tags = {
     Name = "Nat-Gateway"
