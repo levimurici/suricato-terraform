@@ -8,7 +8,8 @@ terraform {
 
   backend "s3" {
     bucket  = "suricato-dump-services"
-    key     = "${var.key_name["keyname-services"]}"
+    /* key     = "${var.key_name["keyname-services"]}" */
+    key_name = "terraform-aws-dnd-devops-labs"
     region  = "us-east-1"
     encrypt = true
   }
