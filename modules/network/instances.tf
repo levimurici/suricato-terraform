@@ -1,6 +1,7 @@
 resource "aws_instance" "services" {
     count = 1
     ami = "${var.amis["ami-services"]}"
+    instance_type = "t2.micro"
     /* key_name = "${var.key_name["keyname-services"]}" */
     key_name = "terraform-aws-dnd-devops-labs"
     tags = {
