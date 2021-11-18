@@ -28,13 +28,13 @@ resource "aws_security_group" "acesso-dnd" {
     cidr_blocks = "${var.cidr_security_group}"
   }
 
-  ingress {
+/*   ingress {
     description = "Access from dnd-labs"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["177.50.229.182"]
-  }
+  } */
 
   egress  {
       from_port        = 0
