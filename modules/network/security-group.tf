@@ -1,5 +1,5 @@
 resource "aws_security_group" "acesso-dnd" {
-  name        = "Acesso a vpc_dnd"
+  name        = "acesso-dnd"
   description = "Access SG VPN"
   vpc_id      = "${aws_vpc.dnd_vpc.id}"
 
