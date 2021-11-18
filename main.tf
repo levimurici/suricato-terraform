@@ -1,10 +1,7 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
-  }
+provider "aws" {
+  version = "~> 2.0"
+  region  = "us-east-1"
+}
 
 resource "aws_instance" "services" {
     depends_on = ["${aws_s3_bucket.dump-services}"]
@@ -45,5 +42,4 @@ resource "aws_s3_bucket" "dump-services" {
     Name        = "suricato-dump-services"
     Environment = "Dev"
     }
-  }
 }
