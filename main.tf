@@ -1,10 +1,10 @@
 provider "aws" {
-  version = "~> 2.0"
+  version = "~> 3.0"
   region  = "us-east-1"
 }
 
 resource "aws_instance" "services" {
-    depends_on = ["${aws_s3_bucket.dump-services}"]
+    depends_on = ["aws_s3_bucket.dump-services"]
     count = 1
     ami = "${var.amis["ami-services"]}"
     key_name = "${var.key_name["keyname-services"]}"
