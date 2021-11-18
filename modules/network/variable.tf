@@ -25,7 +25,7 @@ variable "vpc_public_subnets" {
 variable "cidr_security_group" {
   description = "value"
   type        = list(string)
-  default     = ["10.0.0.0/16", "177.50.229.182"]
+  default     = ["10.0.0.0/16"]
 }
 
 #Variáveis keyname
