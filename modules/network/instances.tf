@@ -7,7 +7,7 @@ resource "aws_instance" "services" {
     tags = {
       Name = "Serviços-${count.index}"
     }
-    vpc_security_group_ids = ["${module.network.aws_security_group.acesso-dnd.id}"]
+    vpc_security_group_ids = ["${aws_security_group.acesso-dnd.id}"]
     /* vpc_security_group_ids = ["sg-01946c40cfbcc710e"] */
 
 /*   provisioner "local-exec" {
@@ -29,6 +29,6 @@ resource "aws_instance" "suricato-bots" {
     tags = {
       Name = "suricato-bots"
     }
-    vpc_security_group_ids = ["${module.network.aws_security_group.acesso-dnd.id}"]
+    vpc_security_group_ids = ["${aws_security_group.acesso-dnd.id}"]
     /* vpc_security_group_ids = ["sg-01946c40cfbcc710e"] */
 }
