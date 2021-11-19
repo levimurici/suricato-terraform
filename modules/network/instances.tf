@@ -7,7 +7,7 @@ resource "aws_instance" "services" {
     tags = {
       Name = "Serviços-${count.index}"
     }
-    vpc_security_group_ids = "vpc-03de55dc04a3281e1"
+    vpc_security_group_ids = ["vpc-03de55dc04a3281e1"]
 
 /*   provisioner "local-exec" {
     command     = <<EOT
@@ -28,5 +28,5 @@ resource "aws_instance" "suricato-bots" {
     tags = {
       Name = "suricato-bots"
     }
-    vpc_security_group_ids = "vpc-03de55dc04a3281e1"
+    vpc_security_group_ids = ["vpc-03de55dc04a3281e1"]
 }
