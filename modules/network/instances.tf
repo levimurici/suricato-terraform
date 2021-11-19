@@ -2,8 +2,8 @@ resource "aws_instance" "services" {
     count = 1
     ami = "${var.amis["ami-services"]}"
     instance_type = "t2.micro"
-    /* key_name = "${var.key_name["keyname-services"]}" */
-    key_name = "terraform-aws-dnd-devops-labs"
+    key_name = "${var.key_name["keyname-services"]}"
+    /* key_name = "terraform-aws-dnd-devops-labs" */
     tags = {
       Name = "Serviços-${count.index}"
     }
@@ -23,8 +23,8 @@ resource "aws_instance" "suricato-bots" {
     count = 1
     ami = "${var.amis["ami-services"]}"
     instance_type = "t2.micro"
-    /* key_name = "${var.key_name["keyname-services"]}" */
-    key_name = "terraform-aws-dnd-devops-labs"
+    key_name = "${var.key_name["keyname-services"]}"
+    /* key_name = "terraform-aws-dnd-devops-labs" */
     tags = {
       Name = "suricato-bots"
     }
