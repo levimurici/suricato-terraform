@@ -7,7 +7,7 @@ resource "aws_instance" "services" {
     tags = {
       Name = "Serviços-${count.index}"
     }
-    subnet_id = "${aws_subnet.dnd_private-1a.id}"
+    subnet_id = ["${aws_subnet.dnd_private-1a.id}", "${aws_subnet.dnd_public-1f.id}"]
     vpc_security_group_ids = ["${aws_security_group.acesso-dnd.id}"]
     /* vpc_security_group_ids = ["sg-01946c40cfbcc710e"] */
 
@@ -30,7 +30,7 @@ resource "aws_instance" "suricato-bots" {
     tags = {
       Name = "suricato-bots"
     }
-    subnet_id = "${aws_subnet.dnd_private-1a.id}"
+    subnet_id = ["${aws_subnet.dnd_private-1a.id}", "${aws_subnet.dnd_public-1f.id}"]
     vpc_security_group_ids = ["${aws_security_group.acesso-dnd.id}"]
     /* vpc_security_group_ids = ["sg-01946c40cfbcc710e"] */
 }
