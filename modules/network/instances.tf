@@ -8,7 +8,7 @@ resource "aws_instance" "services" {
       Name = "Serviços-${count.index}"
     }
     /* vpc_security_group_ids = aws_security_group.acesso-dnd.id */
-    vpc_security_group_ids = "sg-01946c40cfbcc710e"
+    vpc_security_group_ids = ["sg-01946c40cfbcc710e"]
 
 /*   provisioner "local-exec" {
     command     = <<EOT
@@ -30,5 +30,5 @@ resource "aws_instance" "suricato-bots" {
       Name = "suricato-bots"
     }
     /* vpc_security_group_ids = aws_security_group.acesso-dnd.id */
-    vpc_security_group_ids = "sg-01946c40cfbcc710e"
+    vpc_security_group_ids = ["sg-01946c40cfbcc710e"]
 }
