@@ -1,36 +1,36 @@
 resource "aws_instance" "services" {
-    count = 1
     ami = "${var.amis["ami-services"]}"
     instance_type = "t2.micro"
     key_name = "${var.key_name["keyname-services"]}"
-    /* key_name = "terraform-aws-dnd-devops-labs" */
     tags = {
-      Name = "Serviços-${count.index}"
+      /* Name = "Serviços-${count.index}" */
+      Name = "micro-serviços"
     }
-    subnet_id = "${aws_subnet.dnd_private-1a.id}"
+    subnet_id = "${aws_subnet.dnd_public-1e.id}"
+    /* subnet_id = "${element(var.subnet_ids, count.index)}" */
     vpc_security_group_ids = ["${aws_security_group.acesso-dnd.id}"]
-    /* vpc_security_group_ids = ["sg-01946c40cfbcc710e"] */
 
-/*   provisioner "local-exec" {
-    command     = <<EOT
-      sudo apt-get update
-      sudo apt install -y git
-      sudo git clone https://github.com/levimurici/dnd-initial-scripts && cd dnd-initial-scripts
-      sudo chmod +x docker-suricato.sh && sudo ./docker-suricato.sh
-    EOT
-  } */
+/* provisioner "file" {
+  source = "../scripts/dnd-initial-scripts/docker-suricato.sh"
+  destination = "/tmp/scripts/docker-suricato.sh"
+}
+provisioner "local-exec" {
+  inline = [
+    "sudo chmod +x /tmp/scripts/docker-suricato.sh",
+    "sudo sed -i -e 's/\r$//' /tmp/scripts/docker-suricato.sh",  # Remove the spurious CR characters.
+    "sudo /tmp/scripts/docker-suricato.sh"
+  ]
+} */
 }
 
 resource "aws_instance" "suricato-bots" {
-    count = 1
     ami = "${var.amis["ami-services"]}"
     instance_type = "t2.micro"
     key_name = "${var.key_name["keyname-services"]}"
-    /* key_name = "terraform-aws-dnd-devops-labs" */
     tags = {
       Name = "suricato-bots"
     }
-    subnet_id = "${aws_subnet.dnd_private-1a.id}"
+    subnet_id = "${aws_subnet.dnd_public-1e.id}"
+    /* subnet_id = "${element(var.subnet_ids, count.index)}" */
     vpc_security_group_ids = ["${aws_security_group.acesso-dnd.id}"]
-    /* vpc_security_group_ids = ["sg-01946c40cfbcc710e"] */
 }

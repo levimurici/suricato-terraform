@@ -2,6 +2,7 @@ resource "aws_subnet" "dnd_public-1e" {
   vpc_id            = "${aws_vpc.dnd_vpc.id}"
   cidr_block        = "${var.vpc_public_subnets}"
   availability_zone = "us-east-1e"
+  map_public_ip_on_launch = "true"
   tags = {
     Name    = "dnd_public-1e"
     Service = "Subnet"
@@ -13,8 +14,9 @@ resource "aws_subnet" "dnd_public-1e" {
 
 resource "aws_subnet" "dnd_public-1f" {
   vpc_id            = "${aws_vpc.dnd_vpc.id}"
-  cidr_block        = "10.0.200.0/24"
+  cidr_block        = "82.78.200.0/24"
   availability_zone = "us-east-1f"
+  map_public_ip_on_launch = "true"
   tags = {
     Name    = "dnd_public-1f"
     Service = "Subnet"

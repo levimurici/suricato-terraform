@@ -4,3 +4,6 @@ chave
 .env
 *.tfstate*
 *.lock.hcl
+keys
+.terraform
+.git
