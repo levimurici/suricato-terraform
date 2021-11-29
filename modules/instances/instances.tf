@@ -6,9 +6,9 @@ resource "aws_instance" "services" {
       /* Name = "Serviços-${count.index}" */
       Name = "micro-serviços"
     }
-    subnet_id = module.network.aws_subnet.dnd_public-1e.id
+    subnet_id = aws_subnet.dnd_public-1e.id
     /* subnet_id = "${element(var.subnet_ids, count.index)}" */
-    vpc_security_group_ids = [module.network.aws_security_group.acesso-dnd.id]
+    vpc_security_group_ids = [aws_security_group.acesso-dnd.id]
 
 /* provisioner "file" {
   source = "../scripts/dnd-initial-scripts/docker-suricato.sh"
@@ -30,7 +30,7 @@ resource "aws_instance" "suricato-bots" {
     tags = {
       Name = "suricato-bots"
     }
-    subnet_id = module.network.aws_subnet.dnd_public-1e.id
+    subnet_id = aws_subnet.dnd_public-1e.id
     /* subnet_id = "${element(var.subnet_ids, count.index)}" */
-    vpc_security_group_ids = [module.network.aws_security_group.acesso-dnd.id]
+    vpc_security_group_ids = [aws_security_group.acesso-dnd.id]
 }

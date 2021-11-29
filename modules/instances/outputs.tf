@@ -1,4 +1,4 @@
-/* output "aws_vpc" {
+output "aws_vpc" {
   value = "${aws_vpc.dnd_vpc.id}"
 }
 
@@ -18,7 +18,7 @@ output "aws_subnet_public-1e" {
 output "aws_subnet_public-1f" {
   value = "${aws_subnet.dnd_public-1f}"
 
-} */
+}
 
 output "services_ip" {
   value = aws_instance.services.public_ip
