@@ -1,14 +1,14 @@
 resource "aws_security_group" "acesso-dnd" {
   name        = "acesso-dnd"
   description = "Access SG VPN"
-  vpc_id      = "${aws_vpc.dnd_vpc.id}"
+  vpc_id      = aws_vpc.dnd_vpc.id
 
   ingress {
     description = "Access Ec2"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = "${var.cidr_security_group}"
+    cidr_blocks = var.cidr_security_group
   }
 
   ingress {
@@ -24,7 +24,7 @@ resource "aws_security_group" "acesso-dnd" {
     from_port   = 20
     to_port     = 20
     protocol    = "ICMP"
-    cidr_blocks = "${var.cidr_security_group}"
+    cidr_blocks = var.cidr_security_group
   }
 
   egress  {
