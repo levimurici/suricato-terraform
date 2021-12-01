@@ -29,11 +29,11 @@ output "services_ip" {
 }
 
 output "services_public_dns" {
-  value = aws_instance.suricato-bots.public_dns
+  value = aws_instance.services.public_dns
 }
 
 output "bots_id" {
-  value = aws_instance.services.id
+  value = aws_instance.suricato-bots.id
 }
 
 output "bots_ip" {

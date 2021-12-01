@@ -16,7 +16,7 @@ resource "aws_security_group" "acesso-dnd" {
     from_port   = 0
     to_port     = 0
     protocol    = -1
-    cidr_blocks = ["177.50.229.182/32"]
+    cidr_blocks = ["177.50.230.47/32"]
   }
 
   ingress {
