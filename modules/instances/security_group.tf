@@ -4,14 +4,6 @@ resource "aws_security_group" "acesso-dnd" {
   vpc_id      = aws_vpc.dnd_vpc.id
 
   ingress {
-    description = "Access Ec2"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = var.cidr_security_group
-  }
-
-  ingress {
     description = "Acesso do lab"
     from_port   = 0
     to_port     = 0
@@ -20,10 +12,10 @@ resource "aws_security_group" "acesso-dnd" {
   }
 
   ingress {
-    description = "ping"
-    from_port   = 20
-    to_port     = 20
-    protocol    = "ICMP"
+    description = "Everything to the local security group"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = var.cidr_security_group
   }
 
